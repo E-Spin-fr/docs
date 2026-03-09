@@ -80,7 +80,7 @@
   },
   "logo": {
     "light": "/logo/E-SPIN_logo_text.svg",
-    "dark": "/logo/E-SPIN_logo_text.svg"
+    "dark": "/logo/E-SPIN_logo_text_white.svg"
   },
   "navbar": {
     "links": [],
@@ -108,7 +108,10 @@
     }
   },
   "background": {
-    "decoration": "windows"
+    "decoration": "windows",
+    "color": {
+      "dark": "#0F0D0C"
+    }
   },
   "description": "E-spin, the dev board you'll actually carry"
 }
