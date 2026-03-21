@@ -5,6 +5,10 @@ difficulty: "Beginner"
 tags: ["I2C", "GPIO", "Debugging"]
 ---
 
+<Note>
+This tutorial assumes you have already installed the QMI8658 library and know how to flash the board. See the [library installation guide](#) and [getting started guide](#) if needed.
+</Note>
+
 ## What is I2C?
 
 I2C (Inter-Integrated Circuit, pronounced "I-squared-C") is a two-wire serial communication protocol. Every device on the bus shares two lines:
@@ -22,27 +26,27 @@ The scanner iterates through all 128 possible I2C addresses and attempts to cont
 
 Expected output on a bare E-Spin:
 
-```
+```text
 Scanning I2C bus...
 Found device at address 0x6A  <- IMU
 Scan complete. 1 device found.
 ```
 
-## Hardware
+## Wiring
 
 No additional wiring needed. The IMU is already connected to the ESP32's I2C bus on the PCB.
 
 If you want to scan external devices, connect them to the GPIO header:
 
-| E-Spin Pin | Function   |
-|------------|------------|
-| `GPIO5`    | I2C Data   |
-| `GPIO4`    | I2C Clock  |
-| `3.3V`     | Power      |
-| `GND`      | Ground     |
+| E-Spin Pin | Function |
+| --- | --- |
+| `GPIO5` | I2C Data |
+| `GPIO4` | I2C Clock |
+| `3.3V` | Power |
+| `GND` | Ground |
 
 <Note>
-Most 3.3V I2C breakout boards work directly. For 5V modules, use a logic-level shifter — the ESP32-C3 is **not** 5V tolerant.
+  Most 3.3V I2C breakout boards work directly. For 5V modules, use a logic-level shifter — the ESP32-C3 is **not** 5V tolerant.
 </Note>
 
 ## Code
