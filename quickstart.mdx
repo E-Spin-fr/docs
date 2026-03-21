@@ -1,9 +1,8 @@
 ---
-title: "I2C scanner"
-description: "Learn how to interface with different sensors using the I2C protocol and your E-Spin"
-keywords: ["I2C", "Beginner"]
----
-
+title: "I2C Scanner"
+description: "Learn how to interface with different sensors using the I2C protocol and your E-Spin."
+difficulty: "Beginner"
+tags: ["I2C", "GPIO", "Debugging"]
 ---
 
 ## What is I2C?
@@ -13,26 +12,21 @@ I2C (Inter-Integrated Circuit, pronounced "I-squared-C") is a two-wire serial co
 - **SDA** — Serial Data
 - **SCL** — Serial Clock
 
-Each device has a fixed 7-bit **address** (e.g. `0x68`). The controller (your ESP32) initiates every transaction and addresses a specific peripheral. Multiple devices can coexist on the same two wires as long as their addresses are unique.
+Each device has a fixed 7-bit address (e.g. `0x68`). The controller (your ESP32) initiates every transaction and addresses a specific peripheral. Multiple devices can coexist on the same two wires as long as their addresses are unique.
 
 **Why does this matter for E-Spin?** Your board already has one I2C device built in — the IMU. The exposed GPIO headers let you chain additional sensors (temperature, pressure, distance, OLED displays...) onto the same bus without using extra pins.
-
----
 
 ## What this project does
 
 The scanner iterates through all 128 possible I2C addresses and attempts to contact each one. When a device acknowledges the ping, its address is printed to the serial monitor.
 
-**Expected output on a bare E-Spin:**
+Expected output on a bare E-Spin:
 
-```text
-Scanning I2C bus...
-Found device at address 0x6A <- IMU
-Found device at address 0x7E <-  
-Scan complete. 2 devices found.
 ```
-
----
+Scanning I2C bus...
+Found device at address 0x6A  <- IMU
+Scan complete. 1 device found.
+```
 
 ## Hardware
 
@@ -40,18 +34,16 @@ No additional wiring needed. The IMU is already connected to the ESP32's I2C bus
 
 If you want to scan external devices, connect them to the GPIO header:
 
-| E-Spin Pin | Function |
-| --- | --- |
-| `GPIO5` | I2C Data |
-| `GPI04` | I2C Clock |
-| `3.3V` | Power |
-| `GND` | Ground |
+| E-Spin Pin | Function   |
+|------------|------------|
+| `GPIO5`    | I2C Data   |
+| `GPIO4`    | I2C Clock  |
+| `3.3V`     | Power      |
+| `GND`      | Ground     |
 
 <Note>
-  Most 3.3V I2C breakout boards work directly. For 5V modules, use a logic-level shifter — the ESP32-C3 is **not** 5V tolerant.
+Most 3.3V I2C breakout boards work directly. For 5V modules, use a logic-level shifter — the ESP32-C3 is **not** 5V tolerant.
 </Note>
-
----
 
 ## Code
 
@@ -91,8 +83,10 @@ void loop() {
 }
 ```
 
----
-
 ## What's next?
 
 Now that you've confirmed the IMU is alive on the bus, the next tutorial reads actual sensor data from it.
+
+<Card title="Read IMU Raw Data" icon="compass" href="/projects/imu-raw">
+  Read accelerometer and gyroscope values directly over I2C.
+</Card>
