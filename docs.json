@@ -25,9 +25,9 @@
           {
             "group": "Getting started",
             "pages": [
-              "development",
+              "index",
               "quickstart",
-              "index"
+              "index_tmp"
             ]
           },
           {
