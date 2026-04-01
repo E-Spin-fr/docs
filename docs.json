@@ -14,7 +14,7 @@
         {
           "anchor": "Kickstarter",
           "icon": "arrow-up-right-from-square",
-          "href": "https://www.kickstarter.com/projects/322093471/1816942435"
+          "href": "https://www.kickstarter.com/projects/322093471/e-spin?ref=adciwl"
         }
       ]
     },
@@ -25,9 +25,9 @@
           {
             "group": "Getting started",
             "pages": [
-              "index",
+              "development",
               "quickstart",
-              "development"
+              "index"
             ]
           },
           {
@@ -87,7 +87,7 @@
     "primary": {
       "type": "button",
       "label": "Kickstarter",
-      "href": "https://kickstarter.com/projects/322093471/1816942435"
+      "href": "https://www.kickstarter.com/projects/322093471/e-spin?ref=adciwl"
     }
   },
   "contextual": {
